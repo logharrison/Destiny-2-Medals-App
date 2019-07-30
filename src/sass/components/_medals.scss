@@ -1,0 +1,70 @@
+// Medals component
+
+.medals {
+  padding: 10px 20px;
+  background: $grey;
+  text-align: left;
+}
+
+.medals-earned {
+  padding-top: 10px;
+  margin: 0 -10px;
+}
+
+.medal {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.medal-icon-wrapper {
+  overflow: hidden;
+  width: 90px;
+  margin: 0;
+  text-align: center;
+}
+
+.medal-icon {
+  height: auto;
+  width: 110%;
+}
+
+.medal-count {
+  position: absolute;
+  top: -9px;
+  right: -1px;
+  display: inline-block;
+  background: $aqua-dark;
+  color: $white;
+  padding: 2px 9px 1px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.tooltip {
+  background: $black;
+  font-weight: 400;
+
+  &.__react_component_tooltip {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  &.tooltip--error {
+
+    @include min($tablet) {
+      font-size: 1.6rem;
+    }
+  }
+
+  strong {
+    letter-spacing: 0.025em;
+    font-weight: 400;
+  }
+}
