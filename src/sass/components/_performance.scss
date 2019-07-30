@@ -1,0 +1,55 @@
+// Performance Metrics
+
+.performance-title {
+  padding: 1em 0 0.5em;
+  color: $black;
+  text-align: left;
+  letter-spacing: 0.025em;
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  @include min($tablet) {
+    font-size: 2.2rem;
+  }
+}
+
+.report-performance {
+  padding: 10px;
+
+  @include min($tablet) {
+    padding: 20px;
+  }
+}
+
+.metrics-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 -5px;
+}
+
+.performance-metric {
+  flex: 1 1 auto;
+  flex-basis: calc(33.33% - 10px);
+  margin: 5px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  background-color: $white;
+  color: $black;
+  text-align: left;
+  background-color: $grey;
+}
+
+.metric-title {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  letter-spacing: 0.025em;
+  font-size: 1.4rem;
+  font-weight: 600;
+
+}
+
+.metric-value {
+  font-weight: 300;
+  font-size: 3rem;
+}
