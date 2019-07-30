@@ -1,0 +1,128 @@
+// FONT
+
+html {
+  // 1rem = 10px
+  font-size: 10px;
+}
+
+body {
+  font-family: $sans;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.wrapper {
+  min-height: 100vh;
+  background-image: linear-gradient(-197deg, #53dab0 0%, #6369D1 100%);
+  transition: all 1000ms ease-in-out;
+}
+
+// Style the react root.
+#root > [data-reactroot] { 
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  flex-flow: column;
+}
+
+.input-background,
+.character-background,
+.list-background {
+  content: '';
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  position: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+.input-background {
+  background-image: url('https://s3-us-west-2.amazonaws.com/destinymedals.com/mountain-climb.jpg');
+}
+
+.character-background {
+  background-image: url('https://s3-us-west-2.amazonaws.com/destinymedals.com/farm.jpg');
+}
+
+.list-background {
+  background-image: url('https://s3-us-west-2.amazonaws.com/destinymedals.com/outpost.jpg');
+}
+
+.app {
+  &.input-view {
+    .input-background {
+      animation: loadBackground 1000ms ease-in-out;
+      animation-fill-mode: forwards;
+      animation-delay: 400ms;
+    }
+  }
+
+  &.input-leave {
+    .input-background {
+      opacity: 0.2;
+      animation: removeBackground 1000ms ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.character-view {
+    .character-background {
+      animation: loadBackground 1000ms ease-in-out;
+      animation-fill-mode: forwards;
+      animation-delay: 500ms;
+    }
+  }
+
+  &.character-leave {
+    .character-background {
+      opacity: 0.2;
+      animation: removeBackground 1000ms ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.list-view {
+    .list-background {
+      animation: loadBackground 1000ms ease-in-out;
+      animation-fill-mode: forwards;
+      animation-delay: 500ms;
+    }
+  }
+}
+
+@keyframes loadBackground {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes removeBackground {
+  0% {
+    opacity: 0.2;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  }
