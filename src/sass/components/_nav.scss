@@ -1,0 +1,30 @@
+// Navigation Component
+
+.nav {
+  display: block;
+  padding: 15px 0;
+  text-align: center;
+
+  a {
+    display: inline-block;
+  }
+}
+
+.h1 {
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-weight: 500;
+  font-size: 1.4rem;
+
+  @include min($tablet) {
+    font-size: 2rem;
+  }
+}
+
+.logo-svg {
+  position: relative;
+  top: 18px;
+  display: inline-block;
+  margin: 0 20px 0 15px;
+}
