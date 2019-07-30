@@ -1,0 +1,98 @@
+// Character list and card styles.
+
+.character-select {
+  flex: 0 0 100%;
+  width: 100%;
+  margin: auto;
+  padding: 0 20px;
+  min-height: 200px;
+
+  @include min($tablet) {
+    padding: 0;
+  }
+}
+
+.character-list {
+  margin: 0;
+  padding: 0;
+}
+
+.character-list__item {
+  position: relative;
+  height: 80px;
+  margin-bottom: 0.75em;
+  border-radius: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  list-style: none;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba($black, 0.2);
+  transition: all 150ms ease;
+  transform: translateY(0);
+  opacity: 0;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+  }
+}
+
+.character {
+  display: flex;  
+  height: 100%;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: flex-start;
+  color: $white;
+  font-size: 1.6rem;
+}
+
+.character-content {
+  flex: 1;
+  padding-left: 25%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.character-class {
+  flex: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.character-detail {
+  flex: 0 0 auto;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.character-detail--level {
+  margin-right: 0.5em;
+}
+
+.light-icon {
+  position: relative;
+  top: -4px;
+  display: inline-block;
+  padding-right: 4px;
+  transform: rotate(45deg);
+  color: $aqua;
+  font-size: 8px;
+}
+
+.character-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  height: 25px;
+  width: 25px;
+
+  svg {
+    fill: $white;
+  }
+}
