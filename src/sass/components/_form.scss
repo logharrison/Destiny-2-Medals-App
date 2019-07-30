@@ -1,0 +1,163 @@
+// Form component and styling.
+
+.view-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include min($tablet) {
+    width: 360px;
+    height: 600px;
+  }
+
+  &.view-container--short {
+    height: 380px;
+
+    @include min($tablet) {
+      height: 500px;
+    }
+  }
+}
+
+.form {
+  flex: 0 0 100%;
+  position: relative;
+  margin: auto;
+  padding: 0 20px;
+
+  @include min($tablet) {
+    padding: 0;
+  }
+}
+
+.button {
+  outline: none;
+  width: 100%;
+  padding: 25px 100px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.11);
+  border-radius: 4px;
+  border: none;
+  background: $blue-dark;
+  color: $white;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  transition: all 250ms ease;
+  transition-property: color, box-shadow, transform, background;
+  cursor: pointer;
+
+  &:hover {
+    background: $aqua-dark;
+  }
+
+  &:disabled {
+    opacity: 0.9;
+    cursor: not-allowed;
+
+    &:hover {
+      background: $blue-dark;
+    }
+  }
+}
+
+.button-wrapper {
+  margin-top: 3.5em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 2rem 2rem 1.75rem;
+  background: $white;
+  color: $blue-dark;
+  outline: none;
+  letter-spacing: 0.025em;
+  border-radius: 4px;
+  box-shadow: 0 6px 14px rgba($black, 0.11);
+}
+
+.form-input::-webkit-input-placeholder {
+  color: $black;
+  opacity: 0.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5em;
+  text-align: left;
+  text-transform: uppercase;
+  color: $white;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 4.5px;
+}
+
+.platform-select__buttons {
+  display: flex;
+  align-content: flex-start;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+
+.radio-wrapper {
+  flex: 0 0 32%;
+}
+
+// Radio Buttons
+.radio-label {
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  border: 2px solid $white;
+  border-radius: 4px;
+  padding: 10px 0;
+  background: transparent;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: $white;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+
+  &:hover,
+  &:focus, 
+  &:active {
+    background: $white;
+    color: $blue-dark;
+  }
+}
+
+/* Input style */
+input[type="radio"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input[type="radio"]:active ~ label {
+  opacity: 0.6;
+}
+
+input[type="radio"]:checked ~ label {
+  opacity: 1;
+  background: $white;
+  color: $blue-dark;
+  box-shadow: 0 6px 14px rgba($black, 0.11);
+}
+
+// Form Animation
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
