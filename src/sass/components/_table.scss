@@ -1,0 +1,113 @@
+.report-scoreboard {
+  padding: 10px;
+  background: $white;
+
+  @include min($tablet) {
+    padding: 20px;
+  }
+}
+
+.team-name {
+  flex: 0 0 auto;
+}
+
+.score-divider {
+  flex: 0 0 5%;
+  height: 2px;
+  margin: auto 15px;
+  background: $blue;
+
+  &.score-divider--alpha {
+    background: $red;
+  }
+}
+
+.score-board__team {
+  display: flex;
+  flex-flow: row;
+  align-content: center;
+  justify-content: flex-start;
+  margin-bottom: 0.5em;
+  padding-top: 1em;
+  text-align: left;
+  color: $blue;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+
+  @include min($tablet) {
+    font-size: 2.2rem;
+  }
+
+  &.score-board__team--alpha {
+    color: $red;
+  }
+}
+
+.score-board__total {
+  flex: 0 0 auto;
+  color: $blue;
+  letter-spacing: 1px;
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  @include min($tablet) {
+    font-size: 2.2rem;
+  }
+
+  &.score-board__total--alpha {
+    color: $red;
+  }
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 2em;
+  text-align: center;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 1.2rem;
+  font-weight: 300;
+
+  @include min($tablet) {
+    font-size: 1.4rem;
+  }
+}
+
+.table-header {
+  padding: 0;
+  padding-right: 0;
+  border-bottom: 1px solid $blue-dark;
+  text-align: right;
+  font-weight: 400;
+
+  @include min($tablet) {
+    padding: 5px;
+  }
+
+  &:first-of-type {
+    padding-right: 5px;
+    padding-left: 0;
+    text-align: left;
+  }
+}
+
+.table-row {
+  border-bottom: 1px solid #f9f9f9;
+
+  &:nth-child(odd) {
+    background: #f7f7f7;
+  }
+}
+
+.table-column {
+  padding: 5px;
+  padding-right: 0;
+  text-align: right;
+
+  &:first-of-type {
+    padding-right: 5px;
+    padding-left: 0;
+    text-align: left;
+  }
+}
