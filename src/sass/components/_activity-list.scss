@@ -1,0 +1,264 @@
+// Activity List and Card Styling
+
+.activity-list {
+  max-width: 680px;
+  min-height: 200px;
+  margin: 2em auto;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.activity {
+  margin-bottom: 0.75em;
+  box-shadow: 0 6px 12px rgba($black, 0.3);
+  border-radius: 10px;
+  transform: translateY(50px);
+  transition: box-shadow 250ms ease;
+  opacity: 0;
+
+  @include min($tablet) {
+    margin-bottom: 1.5em;
+  }
+
+  &:hover {
+    box-shadow: 0 8px 18px rgba($black, 0.24);
+
+    .card__toggle-button {
+      background: $blue-dark;
+      color: $white;
+    }
+  }
+
+  &.activity--is-active {
+    .activity-card {
+      border-radius: 10px 10px 0 0;
+    }
+
+    .activity-close {
+      display: block;
+    }
+  }
+}
+
+.activity-card {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  position: relative;
+  list-style: none;
+  height: 200px;
+  width: 100%;
+  padding: 0 0 10px;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: $blue;
+  text-align: left;
+  color: $white;
+  cursor: pointer;
+
+  @include min($tablet) {
+    height: 320px;
+    padding: 0 0 20px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &::before {
+    background: $blue;
+    opacity: 1;
+    z-index: 9;
+    border-radius: 10px;
+    pointer-events: none;
+    animation: fadeBackground 500ms 1 800ms;
+    animation-fill-mode: forwards;
+  }
+
+  &::after {
+    background: linear-gradient(hsla(236, 54%, 60%, 0.35), rgba(53,68,95,.6));
+    z-index: 1;
+    border-radius: 10px;
+
+    @include min($tablet) {
+      background: linear-gradient(hsla(236, 54%, 60%, 0.35), rgba(53,68,95,.6));
+    }
+  }
+}
+
+@keyframes fadeBackground {
+  0% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+.activity-card__details {
+  position: relative;
+  z-index: 10;
+  flex: 0 0 auto;
+  justify-self: flex-start;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin-bottom: auto;
+  display: flex;
+  flex-flow: row;
+  padding-right: 15px;
+  padding-left: 0;
+  padding-top: 0;
+  letter-spacing: .025em;
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  @include min($tablet) {
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-left: 5px;
+    font-size: 1.6rem;
+  }
+}
+
+.details-mode {
+  margin: auto 0;
+}
+
+.details-time {
+  align-self: center;
+  justify-self: flex-end;
+  margin-left: auto;
+  text-transform: capitalize;
+  text-align: right;
+}
+
+.activity-icon {
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+.card-title-wrapper {
+  padding: 0 10px;
+
+  @include min($tablet) {
+    padding: 0 20px;
+  }
+}
+
+.card__title {
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  color: $white;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 2.2rem;
+  line-height: 1;
+
+  @include min($tablet) {
+    font-size: 3.4rem;
+    width: 50%;
+  }
+}
+
+.activity-card__content {
+  display: flex;
+  flex-flow: row;
+  position: relative;
+  top: -2px;
+  z-index: 10;
+  padding: 0 10px;
+
+  @include min($tablet) {
+    padding: 0 20px;
+  }
+}
+
+.content-results {
+  flex: 0 0 auto;
+  color: $blue-dark;
+  letter-spacing: .5px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: $white;
+  margin-top: 10px;
+  padding: 4px 9px 3px 10px;
+  line-height: 1.2;
+}
+
+.card__toggle-button {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  display: inline-block;
+  z-index: 10;
+  padding: 10px 25px;
+  border-radius: 25px;
+  background: $white;
+  color: $blue-dark;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 200ms ease;
+  transition-property: background, color, box-shadow;
+  border-style: none;
+  border: 1px solid $white;
+
+  @include min($tablet) {
+    bottom: 25px;
+    right: 20px;
+    font-size: 1.4rem;
+  }
+
+  &:hover,
+  &:focus {
+    background: $blue-dark;
+    color: $white;
+    outline: none;
+  }
+}
+
+.activity-close {
+  display: none;
+  text-align: center;
+}
+
+.close-button {
+  display: block;
+  padding: 10px;
+  border-top: 1px solid rgba($black, 0.1);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  text-align: center;
+  background: $grey;
+  color: $black;
+  font-size: 1.4rem;
+  transition: all 200ms ease;
+  cursor: pointer;
+
+  &:hover {
+    background: $blue;
+    color: $white;
+  }
+}
