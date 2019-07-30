@@ -1,0 +1,67 @@
+// Match Report component.
+
+.activity-report {
+  position: relative;
+  z-index: 10;
+  background: $white;
+  color: $blue-dark;
+}
+
+
+.report-nav {
+  padding: 0 10px;
+  text-align: left;
+
+  @include min($tablet) {
+    padding: 0 20px;
+  }
+}
+
+.report-nav__item {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-right: 15px;
+  padding: 20px 0 10px;
+  color: rgba($black, 0.6);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  opacity: 0.6;
+  transition: all 200ms ease;
+
+  @include min($tablet) {
+    margin-right: 25px;
+    padding: 25px 0 10px;
+    font-size: 1.4rem;
+  }
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba($black, 0.6);
+    z-index: 1;
+  }
+
+  &::before {
+    z-index: 10;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: $aqua-dark;
+    transition: all 200ms ease-in;
+  }
+
+  &.is-active {
+    opacity: 1;
+    color: $aqua-dark;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
